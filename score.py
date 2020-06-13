@@ -4,7 +4,7 @@ class Score_Batting_First:
             match_type => takes in 2 parameter in a tuple i.e. (odi or test, no_of_overs or no_of_days)
         '''
         self.match_type = match_type
-        self.batsmen = [bestmen1, bestmen2]
+        self.batsmen = [batsmen1, batsmen2]
         self.current_batsmen = [True, False]
 
         self.runs = runs
@@ -16,6 +16,9 @@ class Score_Batting_First:
         self.runs += runs
         self.balls += balls
         self.wickets += wickets
+        if balls % 6 == 0:
+            current_batsmen[0] != current_batsmen[0]
+            current_batsmen[1] != current_batsmen[1]
 
     def zero(self):
         self.update_score(0)
@@ -110,7 +113,7 @@ def Score_Batting_Second(Score_Batting_First):
         super().four()
 
     def five(self):
-        ssuper().five()
+        super().five()
 
     def six(self):
         super().six()

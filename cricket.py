@@ -19,3 +19,31 @@ class Bowler:
         self.balls = balls
         self.wickets = wickets
         self.maidens = maidens
+
+class WicketKeeper:
+    def __init__(self, player_name:str, catches=0, stumpings=0, runouts=0):
+        self.player_name = player_name
+        self.catches = catches
+        self.stumpings = stumpings
+        self.runouts = runouts
+
+class Fielder:
+    def __init__(self, player_name, catches=0, stumpings=0, runouts=0):
+        self.player_name = player_name
+        self.catches = catches
+        self.stumpings = stumpings
+        self.runouts = runouts
+
+class Player:
+    def __init__(self, player_name, batting_order=-1, batsmen:bool=True, bowler:bool=True, fielder:bool=True, wicket_keeper:bool=False):
+        '''
+            player_name => name of the player
+        '''
+        self.player_name = player_name
+        self.batsmen = Batsmen(player_name)
+        if wicket_keeper:
+            self.bowler = None
+            self.fielder = None
+        else:
+            self.bowler = Bowler(player_name)
+            self.fielder = Fielder(player_name)
