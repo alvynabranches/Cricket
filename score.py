@@ -89,7 +89,11 @@ class Score_Batting_First:
 
     def wide(self, runs):
         self.extras += (runs+1)
-        self.update_score(runs, 0, 0)
+        self.update_score(runs+1, 0, 0)
+
+    def runout_wide(self, runs):
+        self.extras += (runs+1)
+        self.update_score(runs+1, 0, 1)
 
     def bold(self):
         self.update_score(runs, 1, 1)
