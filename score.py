@@ -89,7 +89,7 @@ class Score_Batting_First:
 
     def wide(self, runs):
         self.extras += (runs+1)
-        self.update_score(runs+1, 0, 0)
+        self.update_score(runs+1)
 
     def runout_wide(self, runs):
         self.extras += (runs+1)
@@ -100,6 +100,14 @@ class Score_Batting_First:
 
     def hit_wicket(self):
         self.update_score(0, 1, 1)
+
+    def leg_byes(self, runs):
+        self.extras += runs
+        self.update_score(runs)
+
+    def leg_byes_runout(self, runs):
+        self.extras += runs
+        self.update_score(runs, 1, 1)
 
 def Score_Batting_Second(Score_Batting_First):
     def __init__(self, match_type:str, batsmen1, batsmen2, target, runs=0, wickets=0, balls=0, extras=0):

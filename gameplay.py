@@ -107,7 +107,31 @@ def current_ball(score:Score_Batting_First, option):
         score.bold()
     elif option == 'w:hw':
         score.hit_wicket()
-    elif option == '':
-        score
-    elif option == '':
-        score
+    elif option == 'lb':
+        score.leg_byes(1)
+    elif option == 'lb+2':
+        score.leg_byes(2)
+    elif option == 'lb+3':
+        score.leg_byes(3)
+    elif option == 'lb+4':
+        score.leg_byes(4)
+    elif option == 'lb+5':
+        score.leg_byes(5)
+    elif option == 'lb+6':
+        score.leg_byes(6)
+    elif option == 'lb+7':
+        score.leg_byes(7)
+    elif option == 'w:ro+lb':
+        score.leg_byes_runout(1)
+    elif option == 'w:ro+lb+2':
+        score.leg_byes_runout(2)
+    elif option == 'w:ro+lb+3':
+        score.leg_byes_runout(3)
+    elif option == 'w:ro+lb+4':
+        score.leg_byes_runout(4)
+    elif option == 'w:ro+lb+5':
+        score.leg_byes_runout(5)
+    elif option == 'w:ro+lb+6':
+        score.leg_byes_runout(6)
+    elif option == 'w:ro+lb+7':
+        score.leg_byes_runout(7)

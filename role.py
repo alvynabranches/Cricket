@@ -51,3 +51,15 @@ class Player:
         else:
             self.bowler = Bowler(player_name)
             self.fielder = Fielder(player_name)
+    
+    def get_batting_figures(self):
+        pass
+
+    def get_bowling_figures(self):
+        pass
+    
+    def get_fielding_figures(self):
+        pass
+
+    def get_wicketkeeping_figures(self):
+        pass
