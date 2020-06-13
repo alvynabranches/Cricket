@@ -1,9 +1,10 @@
-from cricket import Batsmen, Bowler, Team
+from role import Batsmen, Bowler, Team
 from score import Score_Batting_First, Score_Batting_Second
 
 no_of_players_per_team = int(input('No of Players per Team:\t'))
 overs = int(input('No of Overs per Team:\t'))
 print()
+
 team1 = str(input('Team 1 Name:\t\t'))
 team1_players = []
 for i in range(no_of_players_per_team):
@@ -23,7 +24,7 @@ t2 = Team(team2, team2_players)
 print(t2.team_name)
 print(t2.players)
 print()
-
+s1 = Score_Batting_First()
 for i in range(overs):
     while True:
         pass
