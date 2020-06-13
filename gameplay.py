@@ -34,6 +34,8 @@ def current_ball(score:Score_Batting_First, option):
         /*lb -> 
         /w:ro+lb -> 
         /w:ro+lb+* -> 
+        wd -> 
+        wd+* -> 
     '''
     if option == '0':
         score.zero()
@@ -153,3 +155,19 @@ def current_ball(score:Score_Batting_First, option):
         score.byes(6)
     elif option == '7b':
         score.byes(7)
+    elif option == 'wd':
+        score.wide(0)
+    elif option == 'wd+1':
+        score.wide(1)
+    elif option == 'wd+2':
+        score.wide(2)
+    elif option == 'wd+3':
+        score.wide(3)
+    elif option == 'wd+4':
+        score.wide(4)
+    elif option == 'wd+5':
+        score.wide(5)
+    elif option == 'wd+6':
+        score.wide(6)
+    elif option == 'wd+7':
+        score.wide(7)

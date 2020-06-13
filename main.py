@@ -29,18 +29,25 @@ t2 = Team(team2, team2_players)
 print(t2.team_name)
 print(t2.players)
 print()
+
 s1 = Score_Batting_First(('odi', o), t1.players[0], t1.players[1])
 t1overs = []
 for i in range(o):
     t1overs.append(Over(i+1))
-    while s1.balls % 6 == 0:
+    while True:
         _option = str(input()).lower()
         t1overs[i].update_over(_option)
-        
-s2 = Score_Batting_Second(('odi', o), t2.players[0], t2.players[1])
+        current_ball(s1, _option)
+        print(f"{s1.runs}\t{s1.balls}")
+        if s1.balls % 6 == 0:
+            break
+
+s2 = Score_Batting_Second(('odi', o), t2.players[0], t2.players[1], s1.runs)
 t2overs = []
 for i in range(o):
     t2overs.append(Over(i+1))
-    while s2.balls % 6 == 0:
+    while s2.balls % 6 != 0:
         _option = str(input()).lower()
         t2overs[i].update_over(_option)
+        current_ball(s2, _option)
+        print(s2.balls)
