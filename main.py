@@ -1,8 +1,9 @@
 from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team
 from score import Score_Batting_First, Score_Batting_Second
+from gameplay import Over
 
 no_of_players_per_team = int(input('No of Players per Team:\t'))
-overs = int(input('No of Overs per Team:\t'))
+o = int(input('No of Overs per Team:\t'))
 print()
 
 team1 = str(input('Team 1 Name:\t\t'))
@@ -25,6 +26,9 @@ print(t2.team_name)
 print(t2.players)
 print()
 s1 = Score_Batting_First()
-for i in range(overs):
+overs = []
+for i in range(o):
+    overs.append(Over(i+1))
     while s1.balls % 6 == 0:
-        _option = input()
+        _option = str(input()).lower()
+        overs[i].update_over(_option)

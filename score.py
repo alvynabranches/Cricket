@@ -4,6 +4,8 @@ class Score_Batting_First:
             match_type => takes in 2 parameter in a tuple i.e. (odi or test, no_of_overs or no_of_days)
         '''
         self.match_type = match_type
+        self.batsmen1 = batsmen1
+        self.batsmen2 = batsmen2
         self.batsmen = [batsmen1, batsmen2]
         self.current_batsmen = [True, False]
 
@@ -89,6 +91,12 @@ class Score_Batting_First:
         self.extras += (runs+1)
         self.update_score(runs, 0, 0)
 
+    def bold(self):
+        self.update_score(runs, 1, 1)
+
+    def hit_wicket(self):
+        self.update_score(0, 1, 1)
+
 def Score_Batting_Second(Score_Batting_First):
     def __init__(self, match_type:str, batsmen1, batsmen2, target, runs=0, wickets=0, balls=0, extras=0):
         super().__init__(match_type, batsmen1, batsmen2, runs, wickets, balls, extras)
@@ -141,3 +149,9 @@ def Score_Batting_Second(Score_Batting_First):
 
     def wide(self):
         super().wide()
+
+    def bold(self):
+        super().bold()
+
+    def hit_wicket(self):
+        super().hit_wicket()

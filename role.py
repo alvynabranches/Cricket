@@ -43,6 +43,7 @@ class Player:
             player_name => name of the player
         '''
         self.player_name = player_name
+        self.batting_order = batting_order
         self.batsmen = Batsmen(player_name)
         if wicket_keeper:
             self.bowler = None
