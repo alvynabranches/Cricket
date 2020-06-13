@@ -30,6 +30,8 @@ print(t2.team_name)
 print(t2.players)
 print()
 
+print("Team 1 playing now")
+
 s1 = Score(('odi', o), t1.players[0], t1.players[1])
 t1overs = []
 for i in range(o):
