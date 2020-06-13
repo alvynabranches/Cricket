@@ -1,4 +1,4 @@
-from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team
+from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team, Player
 from score import Score
 from gameplay import Over, current_ball
 from datetime import datetime
@@ -13,7 +13,7 @@ print()
 team1 = str(input('Team 1 Name:\t\t'))
 team1_players = []
 for i in range(no_of_players_per_team):
-    team1_players.append(str(input(f"Team 1 Player {i+1}:\t")))
+    team1_players.append(Player(str(input(f"Team 1 Player {i+1}:\t")), batting_order=i+1))
 
 t1 = Team(team1, players=team1_players)
 print(t1.team_name)
@@ -23,7 +23,7 @@ print()
 team2 = str(input('Team 2 Name:\t\t'))
 team2_players = []
 for i in range(no_of_players_per_team):
-    team2_players.append(str(input(f"Team 2 Player {i+1}:\t")))
+    team2_players.append(Player(str(input(f"Team 2 Player {i+1}:\t")), batting_order=i+1))
 
 t2 = Team(team2, team2_players)
 print(t2.team_name)
@@ -42,7 +42,7 @@ for i in range(o):
         _option = str(input()).lower()
         t1overs[i].update_over(_option)
         current_ball(s1, _option)
-        print(f"{s1.runs} - {s1.wickets}\t{s1.balls}")
+        print(f"{s1.runs}-{s1.wickets}\t{s1.balls}")
         if s1.balls % 6 == 0 and _i != 1:
             break
 
@@ -58,6 +58,6 @@ for i in range(o):
         _option = str(input()).lower()
         t2overs[i].update_over(_option)
         current_ball(s2, _option)
-        print(f"{s2.runs} - {s2.wickets}\t{s2.balls}")
+        print(f"{s2.runs}-{s2.wickets}\t{s2.balls}")
         if s2.balls % 6 == 0 and _i != 1:
             break

@@ -20,6 +20,12 @@ class Batsmen:
         self.fours = fours
         self.sixes = sixes
 
+    def get_batting_scorecard(self):
+        pass
+
+    def last_10_balls_history(self):
+        pass
+
 class Bowler:
     def __init__(self, player_name:str, runs=0, balls=0, wickets=0, maidens=0):
         self.player_name = player_name
@@ -56,6 +62,9 @@ class Player:
         else:
             self.bowler = Bowler(player_name)
             self.fielder = Fielder(player_name)
+
+    def __str__(self):
+        return f"{self.player_name}"
     
     def get_batting_figures(self):
         pass
