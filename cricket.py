@@ -5,7 +5,7 @@ class Team:
 
 
 class Batsmen:
-    def __init__(self, player_name:str, runs=0, balls=0, fours, sixes):
+    def __init__(self, player_name:str, runs=0, balls=0, fours=0, sixes=0):
         self.player_name = player_name
         self.runs = runs
         self.balls = balls
