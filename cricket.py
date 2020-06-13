@@ -5,10 +5,12 @@ class Team:
 
 
 class Batsmen:
-    def __init__(self, player_name:str, runs=0, balls=0):
+    def __init__(self, player_name:str, runs=0, balls=0, fours, sixes):
         self.player_name = player_name
         self.runs = runs
         self.balls = balls
+        self.fours = fours
+        self.sixes = sixes
 
 class Bowler:
     def __init__(self, player_name:str, runs=0, balls=0, wickets=0, maidens=0):
