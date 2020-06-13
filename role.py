@@ -6,6 +6,11 @@ class Team:
     def optional_players(self, optional_players:list):
         self.optional_players = optional_players
 
+    def show_batting_scorecard(self):
+        pass
+
+    def show_bowling_figures(self):
+        pass
 
 class Batsmen:
     def __init__(self, player_name:str, runs=0, balls=0, fours=0, sixes=0):
