@@ -17,6 +17,8 @@ class Score:
         self.runs = runs
         self.wickets = wickets
         self.balls = balls
-        self.batsmen1 = bestmen1
-        self.batsmen2 = bestmen2
+        self.batsmen = [bestmen1, bestmen2]
         self.current_bestmen = [True, False]
+    
+    def update_score():
+        pass
