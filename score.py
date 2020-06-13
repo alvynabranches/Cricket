@@ -1,5 +1,5 @@
-class Score_Batting_First():
-    def __init__(self, match_type:tuple, batsmen1:str, batsmen2:str, runs=0, wickets=0, balls=0, extras={'b': 0, 'lb': 0, 'wd': 0, 'nb': 0}):
+class Score():
+    def __init__(self, match_type:tuple, batsmen1:str, batsmen2:str, runs=0, wickets=0, balls=0, extras={'b': 0, 'lb': 0, 'wd': 0, 'nb': 0}, target=None):
         '''
             match_type => takes in 2 parameter in a tuple i.e. (odi or test, no_of_overs or no_of_days)
         '''
@@ -13,6 +13,7 @@ class Score_Batting_First():
         self.wickets = wickets
         self.balls = balls
         self.extras = extras
+        self.target = target
     
     def update_score(self, runs, balls=1, wickets=0):
         self.runs += runs
@@ -21,6 +22,11 @@ class Score_Batting_First():
         if balls % 6 == 0:
             self.current_batsmen[0] != self.current_batsmen[0]
             self.current_batsmen[1] != self.current_batsmen[1]
+        if self.target != None:
+            print(f"{self.to_win()[0]} runs from {self.to_win()[1]} balls")
+    
+    def to_win(self):
+        return (self.target - self.runs, self.match_type[1] * 6 - self.balls)
 
     def zero(self):
         self.update_score(0)
@@ -115,72 +121,3 @@ class Score_Batting_First():
     def byes(self, runs):
         self.extras['b'] += runs
         self.update_score(runs)
-
-
-def Score_Batting_Second(Score_Batting_First):
-    def __init__(self, match_type:tuple, batsmen1, batsmen2, target, runs=0, wickets=0, balls=0, extras=0):
-        super(Score_Batting_First, self).__init__(match_type, batsmen1, batsmen2, runs, wickets, balls, extras)
-        self.target = target
-
-    def update_score(self, runs, balls=1, wickets=0):
-        super.update_score(runs, balls, wickets)
-
-    def zero(self):
-        super().zero()
-
-    def one(self):
-        super().one()
-    
-    def two(self):
-        super().two()
-
-    def three(self):
-        super().three()
-
-    def four(self):
-        super().four()
-
-    def five(self):
-        super().five()
-
-    def six(self):
-        super().six()
-    
-    def seven(self):
-        super().seven()
-
-    def noball(self, runs):
-        super().noball(runs)
-
-    def catch_out(self, crossed:bool):
-        super().catch_out(crossed)
-    
-    def run_out(self, completed_runs):
-        super().run_out(completed_runs)
-
-    def noball_run_out(self, completed_runs):
-        super().noball_run_out(completed_runs)
-
-    def stumped(self):
-        super().stumped()
-
-    def stumped_wide(self):
-        super().stumped_wide()
-
-    def wide(self):
-        super().wide()
-
-    def bold(self):
-        super().bold()
-
-    def hit_wicket(self):
-        super().hit_wicket()
-
-    def leg_byes(self, runs):
-        super().leg_byes(runs)
-
-    def leg_byes_runout(self, runs):
-        super().leg_byes_runout(runs)
-    
-    def byes(self, runs):
-        super().byes(runs)

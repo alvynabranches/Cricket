@@ -1,5 +1,5 @@
 from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team
-from score import Score_Batting_First, Score_Batting_Second
+from score import Score
 from gameplay import Over, current_ball
 from datetime import datetime
 from hashlib import sha512
@@ -30,24 +30,32 @@ print(t2.team_name)
 print(t2.players)
 print()
 
-s1 = Score_Batting_First(('odi', o), t1.players[0], t1.players[1])
+s1 = Score(('odi', o), t1.players[0], t1.players[1])
 t1overs = []
 for i in range(o):
+    _i = 0
     t1overs.append(Over(i+1))
     while True:
+        _i += 1
         _option = str(input()).lower()
         t1overs[i].update_over(_option)
         current_ball(s1, _option)
-        print(f"{s1.runs}\t{s1.balls}")
-        if s1.balls % 6 == 0:
+        print(f"{s1.runs} - {s1.wickets}\t{s1.balls}")
+        if s1.balls % 6 == 0 and _i != 1:
             break
 
-s2 = Score_Batting_Second(('odi', o), t2.players[0], t2.players[1], s1.runs)
+print("Team 2 playing now")
+
+s2 = Score(('odi', o), t2.players[0], t2.players[1], target=s1.runs+1)
 t2overs = []
 for i in range(o):
+    _i = 0
     t2overs.append(Over(i+1))
-    while s2.balls % 6 != 0:
+    while True:
+        _i += 1
         _option = str(input()).lower()
         t2overs[i].update_over(_option)
         current_ball(s2, _option)
-        print(s2.balls)
+        print(f"{s2.runs} - {s2.wickets}\t{s2.balls}")
+        if s2.balls % 6 == 0 and _i != 1:
+            break

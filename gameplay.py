@@ -1,4 +1,4 @@
-from score import Score_Batting_First
+from score import Score
 class Over:
     def __init__(self, over_no:int):
         self.over_no = over_no
@@ -7,7 +7,7 @@ class Over:
     def update_over(self, initials):
         self.over.append(str(initials).lower())
 
-def current_ball(score:Score_Batting_First, option):
+def current_ball(score:Score, option):
     '''
         Multiple options are available here for the option attribute
         it can take in options like
