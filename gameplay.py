@@ -11,25 +11,29 @@ def current_ball(score:Score_Batting_First, option):
     '''
         Multiple options are available here for the option attribute
         it can take in options like
-        0
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        nb
-        nb+*
-        w:coc
-        w:co
-        w:ro
-        w:ro+*
-        w:ro+nb+*
-        w:s
-        w:s+wd
-        w:b
-        w:hw
+        /0 -> dot ball
+        /1 -> single run
+        /2 -> two runs
+        /3 -> three runs
+        /4 -> four runs
+        /5 -> five runs
+        /6 -> six runs
+        /7 -> seven runs
+        /nb -> no ball
+        /nb+* -> no ball + * runs
+        /w:coc -> wicket : catch out and crossed over for a single
+        /w:co -> wicket : catch out and (crossed over for double or stand still)
+        /w:ro -> wicket : run out
+        /w:ro+* -> wicket : run out + * runs
+        /w:ro+nb -> wicket : run out + no ball
+        /w:ro+nb+* -> wicket : run out + no ball + * runs
+        /w:s -> 
+        /w:s+wd -> 
+        /w:b -> 
+        /w:hw -> 
+        /*lb -> 
+        /w:ro+lb -> 
+        /w:ro+lb+* -> 
     '''
     if option == '0':
         score.zero()
@@ -69,35 +73,35 @@ def current_ball(score:Score_Batting_First, option):
         score.catch_out(False)
     elif option == 'w:ro':
         score.run_out(0)
-    elif option == 'w+1':
+    elif option == 'w:ro+1':
         score.run_out(1)
-    elif option == 'w+2':
+    elif option == 'w:ro+2':
         score.run_out(2)
-    elif option == 'w+3':
+    elif option == 'w:ro+3':
         score.run_out(3)
-    elif option == 'w+4':
+    elif option == 'w:ro+4':
         score.run_out(4)
-    elif option == 'w+5':
+    elif option == 'w:ro+5':
         score.run_out(5)
-    elif option == 'w+6':
+    elif option == 'w:ro+6':
         score.run_out(6)
-    elif option == 'w+7':
+    elif option == 'w:ro+7':
         score.run_out(7)
-    elif option == 'nb+w':
+    elif option == 'w:ro+nb':
         score.noball_run_out(0)
-    elif option == 'nb+w+1':
+    elif option == 'w:ro+nb+1':
         score.noball_run_out(1)
-    elif option == 'nb+w+2':
+    elif option == 'w:ro+nb+2':
         score.noball_run_out(2)
-    elif option == 'nb+w+3':
+    elif option == 'w:ro+nb+3':
         score.noball_run_out(3)
-    elif option == 'nb+w+4':
+    elif option == 'w:ro+nb+4':
         score.noball_run_out(4)
-    elif option == 'nb+w+5':
+    elif option == 'w:ro+nb+5':
         score.noball_run_out(5)
-    elif option == 'nb+w+6':
+    elif option == 'w:ro+nb+6':
         score.noball_run_out(6)
-    elif option == 'nb+w+7':
+    elif option == 'w:ro+nb+7':
         score.noball_run_out(7)
     elif option == 'w:s':
         score.stumped()
@@ -107,19 +111,19 @@ def current_ball(score:Score_Batting_First, option):
         score.bold()
     elif option == 'w:hw':
         score.hit_wicket()
-    elif option == 'lb':
+    elif option == '1lb':
         score.leg_byes(1)
-    elif option == 'lb+2':
+    elif option == '2lb':
         score.leg_byes(2)
-    elif option == 'lb+3':
+    elif option == '3lb':
         score.leg_byes(3)
-    elif option == 'lb+4':
+    elif option == '4lb':
         score.leg_byes(4)
-    elif option == 'lb+5':
+    elif option == '5lb':
         score.leg_byes(5)
-    elif option == 'lb+6':
+    elif option == '6lb':
         score.leg_byes(6)
-    elif option == 'lb+7':
+    elif option == '7lb':
         score.leg_byes(7)
     elif option == 'w:ro+lb':
         score.leg_byes_runout(1)
@@ -135,3 +139,17 @@ def current_ball(score:Score_Batting_First, option):
         score.leg_byes_runout(6)
     elif option == 'w:ro+lb+7':
         score.leg_byes_runout(7)
+    elif option == '1b':
+        score.byes(1)
+    elif option == '2b':
+        score.byes(2)
+    elif option == '3b':
+        score.byes(3)
+    elif option == '4b':
+        score.byes(4)
+    elif option == '5b':
+        score.byes(5)
+    elif option == '6b':
+        score.byes(6)
+    elif option == '7b':
+        score.byes(7)

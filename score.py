@@ -1,5 +1,5 @@
 class Score_Batting_First:
-    def __init__(self, match_type:tuple, batsmen1:str, batsmen2:str, runs=0, wickets=0, balls=0, extras=0):
+    def __init__(self, match_type:tuple, batsmen1:str, batsmen2:str, runs=0, wickets=0, balls=0, extras={'b': 0, 'lb': 0, 'wd': 0, 'nb': 0}):
         '''
             match_type => takes in 2 parameter in a tuple i.e. (odi or test, no_of_overs or no_of_days)
         '''
@@ -56,7 +56,7 @@ class Score_Batting_First:
 
     def noball(self, runs):
         self.update_score(runs+1, 0)
-        self.extras += (runs+1)
+        self.extras['nb'] += (runs+1)
         if runs % 2 == 1:
             current_batsmen[0] != current_batsmen[0]
             current_batsmen[1] != current_batsmen[1]
@@ -74,8 +74,8 @@ class Score_Batting_First:
             current_batsmen[1] != current_batsmen[1]
 
     def noball_run_out(self, completed_runs):
-        self.update_score(completed_runs, 0, 1)
-        self.extras += (completed_runs+1)
+        self.update_score(completed_runs+1, 0, 1)
+        self.extras['nb'] += (completed_runs+1)
         if completed_runs % 2 == 0:
             current_batsmen[0] != current_batsmen[0]
             current_batsmen[1] != current_batsmen[1]
@@ -84,15 +84,15 @@ class Score_Batting_First:
         self.update_score(0, 1, 1)
     
     def stumped_wide(self):
-        self.extras += 1
+        self.extras['wd'] += 1
         self.update_score(1, 0, 1)
 
     def wide(self, runs):
-        self.extras += (runs+1)
+        self.extras['wd'] += (runs+1)
         self.update_score(runs+1)
 
     def runout_wide(self, runs):
-        self.extras += (runs+1)
+        self.extras['wd'] += (runs+1)
         self.update_score(runs+1, 0, 1)
 
     def bold(self):
@@ -102,12 +102,16 @@ class Score_Batting_First:
         self.update_score(0, 1, 1)
 
     def leg_byes(self, runs):
-        self.extras += runs
+        self.extras['lb'] += runs
         self.update_score(runs)
 
     def leg_byes_runout(self, runs):
-        self.extras += runs
+        self.extras['lb'] += runs
         self.update_score(runs, 1, 1)
+    
+    def byes(self, runs):
+        self.extras['b'] += runs
+        self.update_score(runs)
 
 def Score_Batting_Second(Score_Batting_First):
     def __init__(self, match_type:str, batsmen1, batsmen2, target, runs=0, wickets=0, balls=0, extras=0):
@@ -167,3 +171,12 @@ def Score_Batting_Second(Score_Batting_First):
 
     def hit_wicket(self):
         super().hit_wicket()
+
+    def leg_byes(self, runs):
+        super().leg_byes(runs)
+
+    def leg_byes_runout(self, runs):
+        super().leg_byes_runout(runs)
+    
+    # def byes(self, runs):
+    #     super().byes(runs)

@@ -1,6 +1,10 @@
 from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team
 from score import Score_Batting_First, Score_Batting_Second
-from gameplay import Over
+from gameplay import Over, current_ball
+from datetime import datetime
+from hashlib import sha512
+
+match_id = str(sha512(str(datetime.now()).encode()).hexdigest().encode()).replace("b'", '').replace("'", '')
 
 no_of_players_per_team = int(input('No of Players per Team:\t'))
 o = int(input('No of Overs per Team:\t'))
@@ -25,10 +29,18 @@ t2 = Team(team2, team2_players)
 print(t2.team_name)
 print(t2.players)
 print()
-s1 = Score_Batting_First()
-overs = []
+s1 = Score_Batting_First(('odi', o), t1.players[0], t1.players[1])
+t1overs = []
 for i in range(o):
-    overs.append(Over(i+1))
+    t1overs.append(Over(i+1))
     while s1.balls % 6 == 0:
         _option = str(input()).lower()
-        overs[i].update_over(_option)
+        t1overs[i].update_over(_option)
+        
+s2 = Score_Batting_Second(('odi', o), t2.players[0], t2.players[1])
+t2overs = []
+for i in range(o):
+    t2overs.append(Over(i+1))
+    while s2.balls % 6 == 0:
+        _option = str(input()).lower()
+        t2overs[i].update_over(_option)
