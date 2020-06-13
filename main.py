@@ -1,4 +1,4 @@
-from role import Batsmen, Bowler, Team
+from role import Batsmen, Bowler, WicketKeeper, WicketKeeper, Team
 from score import Score_Batting_First, Score_Batting_Second
 
 no_of_players_per_team = int(input('No of Players per Team:\t'))
@@ -26,5 +26,5 @@ print(t2.players)
 print()
 s1 = Score_Batting_First()
 for i in range(overs):
-    while True:
-        pass
+    while s1.balls % 6 == 0:
+        _option = input()
